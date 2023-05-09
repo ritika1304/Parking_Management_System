@@ -36,7 +36,10 @@ export default function Header(){
                 <li className="nav-item"><Link to="">
                   <a className="nav-link" href=" ">View Vehicle Type</a></Link>
                 </li>
-                <li className="nav-item"><Link to="">
+                <li className="nav-item"><Link to="ViewParking">
+                  <a className="nav-link" href="manage.js">View Parking</a></Link>
+                </li>
+                <li className="nav-item"><Link to="/viewSlot">
                   <a className="nav-link" href=" ">View Slot</a></Link>
                 </li>
                 <li className="nav-item"><Link to="/bookBooking">

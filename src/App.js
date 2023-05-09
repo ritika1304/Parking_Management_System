@@ -11,7 +11,7 @@ import AddParking from "./Admin/AddParking";
 import AddCity from "./Admin/AddCity";
 import ViewCity from "./Admin/ViewCity";
 import AddSlots from "./Admin/AddSlots";
-import Manage from "./Admin/Manage";
+import ViewParking from "./Admin/ViewParking";
 import ViewBookings from "./Admin/ViewBooking";
 import ViewUser from "./Admin/ViewUser";
 import AMaster from "./Admin/AMaster";
@@ -33,6 +33,7 @@ function App(){
         <Route path="/register" element={<Register/>}/>
         <Route path="/viewVehicleType" element={<ViewVehicleType/>}/>
         <Route path="/viewSlot" element={<ViewSlot/>}/>
+        <Route path="viewParking" element={<ViewParking/>}/>
         <Route path="/bookBooking" element={<BookBooking/>}/>
         </Route>
 
@@ -43,7 +44,7 @@ function App(){
         <Route path="addCity" element={<AddCity/>}/>
         <Route path="viewCity" element={<ViewCity/>}/>
         <Route path="addSlots" element={<AddSlots/>}/>
-        <Route path="manage" element={<Manage/>}/>
+        <Route path="viewParking" element={<ViewParking/>}/>
         <Route path="viewBooking" element={<ViewBookings/>}/>
         <Route path="viewUser" element={<ViewUser/>}/>
         

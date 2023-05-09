@@ -1,22 +1,31 @@
 export default function viewBooking(){
     const Manage=[
         {
-            user_Details:"car ",
-            time:" 12.30",
-            cost:"1200",
-            update_Status:" "
+            price:'1000',
+            date:'0-May',
+            time:'01:00pm',
+            total_cost:'1000',
+            payment_way:'online',
+            CVV:'897',
+            card_no:'6280338944',
         },
         {
-            user_Details:"car ",
-            time:" 12.30",
-            cost:"1200",
-            update_Status:" "
+            price:'1000',
+            date:'0-May',
+            time:'01:00pm',
+            total_cost:'1000',
+            payment_way:'online',
+            CVV:'897',
+            card_no:'6280338944',
         },
         {
-            user_Details:"car ",
-            time:" 12.30",
-            cost:"1200",
-            update_Status:" "
+            price:'1000',
+            date:'0-May',
+            time:'01:00pm',
+            total_cost:'1000',
+            payment_way:'online',
+            CVV:'897',
+            card_no:'6280338944',
         },
      
     ]
@@ -31,10 +40,13 @@ export default function viewBooking(){
             <thead>
                  <tr>
                     <th>Sr.No</th>
-                    <th>user_Details</th>
+                    <th>price</th>
+                    <th>Date</th>
                     <th>time</th>
-                    <th>cost</th>
-                    <th>update_Status</th>
+                    <th>total_cost</th>
+                    <th>payment_way</th>
+                    <th>CVV</th>
+                    <th>card_no</th>
                      
                 </tr>
                 </thead>
@@ -42,10 +54,13 @@ export default function viewBooking(){
             {Manage.map((el,index)=>(
                 <tr key={index}>
                     <td>{index+1}</td>
-                    <td>{el.user_Details}</td>
+                    <td>{el.price}</td>
+                    <td>{el.date}</td>
                     <td>{el.time}</td>
-                    <td>{el.cost}</td>
-                    <td>{el.update_Status}</td>
+                    <td>{el.total_cost}</td>
+                    <td>{el.payment_way}</td>
+                    <td>{el.CVV}</td>
+                    <td>{el.card_no}</td>
                     
                     
                 </tr>

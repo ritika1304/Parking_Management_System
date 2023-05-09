@@ -33,8 +33,8 @@ export default function AHeader(){
                                 <li className="nav-item"><Link to="addSlots">
                                     <a className="nav-link" href="addSlots.js">Add Slots</a></Link>
                                 </li>
-                                <li className="nav-item"><Link to="manage">
-                                    <a className="nav-link" href="manage.js">Manage</a></Link>
+                                <li className="nav-item"><Link to="ViewParking">
+                                    <a className="nav-link" href="manage.js">View Parking</a></Link>
                                 </li>
                                 <li className="nav-item"><Link to="viewBooking">
                                     <a className="nav-link" href="viewBooking.js">View Bookings</a></Link>

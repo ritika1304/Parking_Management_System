@@ -1,20 +1,17 @@
 export default function viewCity(){
     const Manage=[
         {
-            user_name:"car ",
-            email:" 12.30",
-            address:"1200",
+            city_name: 'Jalandhar',
+            Image:'img'
            
         },
         {
-            user_name:"car ",
-            email:" 12.30",
-            address:"1200",
+            city_name: 'Hoshiarpur',
+            Image:'img'
         },
         {
-            user_name:"car ",
-            email:" 12.30",
-            address:"1200",
+            city_name: 'pathankot',
+            Image:'img'
         },
      
     ]
@@ -28,10 +25,9 @@ export default function viewCity(){
             <thead>
                  <tr>
                     <th>Sr.No</th>
-                    <th>user_Details</th>
-                    <th>time</th>
-                    <th>cost</th>
-                    <th>update_Status</th>
+                    <th>city_name</th>
+                    <th>Image</th>
+                    
                      
                 </tr>
                 </thead>
@@ -39,11 +35,8 @@ export default function viewCity(){
             {Manage.map((el,index)=>(
                 <tr key={index}>
                     <td>{index+1}</td>
-                    <td>{el.user_Details}</td>
-                    <td>{el.time}</td>
-                    <td>{el.cost}</td>
-                    <td>{el.update_Status}</td>
-                    
+                    <td>{el.city_name}</td>
+                    <td>{el.Image}</td>
                     
                 </tr>
             ))}
