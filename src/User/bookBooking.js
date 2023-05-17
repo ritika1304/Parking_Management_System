@@ -1,11 +1,50 @@
+import axios from "axios";
+import { Link,useNavigate } from "react-router-dom"
+import { useState } from "react";
+import { toast } from "react-toastify";
+import apiServices from "../General/apiServices";
+
 export default function BookBooking(){
+    const [price, setPrice] = useState('');
+    const [date, setDate] = useState('');
+    const [time, setTime] = useState('');
+    const [total_cost, setTotal_cost] = useState('');
+    const navigate=useNavigate()
+    const handleForm = (e) => {
+        let data={
+            price:price,
+            date:date,
+            time:time,
+            total_cost:total_cost,
+        }
+    apiServices.BookBooking(data).then(
+        (x)=>{
+            console.log(x)
+            if(x.data.success){
+                toast.success(x.data.msg)
+                sessionStorage.setItem("token",x.data.token )
+                sessionStorage.setItem("authorize",true)
+                console.log(x)
+                navigate("/admin")
+            }
+            else{
+                toast.error(x.data.msg)
+            }
+        
+        }
+    ).catch(
+    ()=>{
+        toast.error("Something went wrong!! try again later")
+    }
+)
+    }
     return(
         <>
         <div className="container">
             <div className="row my-5">
                 <div className="col-md-12">
                     <h1 className="mt-5">Book Booking</h1>
-                    <form>
+                    <form onSubmit={handleForm}>
                         <label >price</label>
                         <input className="form-control"/>
                         <label >Date</label>

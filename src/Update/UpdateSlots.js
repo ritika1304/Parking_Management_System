@@ -5,7 +5,7 @@ import * as qs from "qs";
 import { toast } from "react-toastify";
 import apiServices from "../General/apiServices";
 
-export default function AddSlots(){
+export default function UpdateSlots(){
     const [slots, setSlots] = useState('');
     const [pricePerDay, setPricePerDay] = useState('');
     const [vehicleType, setVehicleType] = useState('');
@@ -16,10 +16,8 @@ export default function AddSlots(){
         slots:slots,
         pricePerDay:pricePerDay,
         vehicleType:vehicleType,
-        pricePerHour:pricePerHour
-        
+        pricePerHour:pricePerHour,
     }
-  
   apiServices.AddSlots(data).then(
     (x)=>{
         console.log(x)
@@ -40,7 +38,7 @@ export default function AddSlots(){
         toast.error("Something went wrong!! try again later")
     }
 )
-}
+  }
     return(
         <>
         <div className="container">

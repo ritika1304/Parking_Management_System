@@ -19,6 +19,9 @@ import AdminLogin from "./General/AdminLogin";
 import ViewVehicleType from "./User/viewVehicleType";
 import ViewSlot from "./User/viewSlot";
 import BookBooking from "./User/bookBooking";
+import UpdateCity from "./Update/UpdateCity";
+import UpdateParking from "./Update/UpdateParking";
+import UpdateSlots from "./Update/UpdateSlots";
 
 function App(){
   return (
@@ -41,10 +44,14 @@ function App(){
         <Route path="/admin" element={<AMaster/>}>
         <Route path="/admin" element={<Dashboard/>}/>
         <Route path="addParking" element={<AddParking/>}/>
+        <Route path="viewParking" element={<ViewParking/>}/>
+        <Route path="updateParking" element={<UpdateParking/>}/>
         <Route path="addCity" element={<AddCity/>}/>
         <Route path="viewCity" element={<ViewCity/>}/>
+        <Route path="updateCity" element={<UpdateCity/>}/>
         <Route path="addSlots" element={<AddSlots/>}/>
-        <Route path="viewParking" element={<ViewParking/>}/>
+        <Route path="updateSlots" element={<UpdateSlots/>}/>
+        
         <Route path="viewBooking" element={<ViewBookings/>}/>
         <Route path="viewUser" element={<ViewUser/>}/>
         

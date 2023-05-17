@@ -1,34 +1,24 @@
+import  {useEffect, useState} from "react";
+import apiServices from "../General/apiServices";
 export default function viewBooking(){
-    const Manage=[
-        {
-            price:'1000',
-            date:'0-May',
-            time:'01:00pm',
-            total_cost:'1000',
-            payment_way:'online',
-            CVV:'897',
-            card_no:'6280338944',
-        },
-        {
-            price:'1000',
-            date:'0-May',
-            time:'01:00pm',
-            total_cost:'1000',
-            payment_way:'online',
-            CVV:'897',
-            card_no:'6280338944',
-        },
-        {
-            price:'1000',
-            date:'0-May',
-            time:'01:00pm',
-            total_cost:'1000',
-            payment_way:'online',
-            CVV:'897',
-            card_no:'6280338944',
-        },
-     
-    ]
+    const [myData,setMyData]= useState()
+    useEffect(
+        ()=>{
+            let data = {}
+            apiServices.viewBooking(data).then(
+                (response) =>{
+                    console.log('response is:', response.data.data)
+                    setMyData(response.data.data)
+                }
+            ).catch(
+                (error)=>{
+                    console.log('error is ',error)
+                }
+            )
+        },[]
+    )
+
+
     return(
         <>
         
@@ -51,17 +41,17 @@ export default function viewBooking(){
                 </tr>
                 </thead>
            
-            {Manage.map((el,index)=>(
+            {myData?.map((el,index)=>(
                 <tr key={index}>
                     <td>{index+1}</td>
-                    <td>{el.price}</td>
+                    {/* <td>{el.price}</td>
                     <td>{el.date}</td>
                     <td>{el.time}</td>
                     <td>{el.total_cost}</td>
                     <td>{el.payment_way}</td>
                     <td>{el.CVV}</td>
                     <td>{el.card_no}</td>
-                    
+                     */}
                     
                 </tr>
             ))}

@@ -3,7 +3,7 @@ import { Link,useNavigate } from "react-router-dom"
 import { useState } from "react";
 import { toast } from "react-toastify";
 import apiServices from "../General/apiServices";
-export default function AddCity(){
+export default function UpdateCity(){
   
   const [city, setCity] = useState('');
   const [image, setImage] = useState('');
@@ -13,6 +13,7 @@ export default function AddCity(){
             city:city,
             image:image,
         }
+    
   apiServices.AddCity(data).then(
     (x)=>{
         console.log(x)
@@ -33,6 +34,7 @@ export default function AddCity(){
         toast.error("Something went wrong!! try again later")
     }
 )
+    
 }
     return(
         <>

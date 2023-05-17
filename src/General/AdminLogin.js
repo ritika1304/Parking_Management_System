@@ -1,39 +1,93 @@
-import { Link } from "react-router-dom"
-import React from "react"
 
-export default function AdminLogin(){
-    return(
-      <>
-        <div className="container">
-          <div className="row " >
-            <div className="col-md-12">
-              <h1 >Admin Login</h1>
-              <hr/>
-              <form>
-  <div className="mb-3">
-    <label for="exampleInputEmail1" className="form-label">Email address</label>
-    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-    <div id="emailHelp" className="form-text"></div>
-  </div>
-  <div className="mb-3">
-    <label for="exampleInputPassword1" className="form-label">Password</label>
-    <input type="password" className="form-control" id="exampleInputPassword1"/>
-  </div>
-  <div className="mb-3 form-check">
-    <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-    <label className="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <Link to="/admin"><button type="submit" className="btn btn-primary">Submit</button></Link>
-</form>
+import { useState,  } from "react"
+import { ToastContainer, toast } from "react-toastify"
+import apiServices from "../General/apiServices"
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
+import { ClipLoader } from "react-spinners";
+// import AdminMaster from "../../Master/AdminMaster";
+
+export default function Login() {
+    const [loading, setLoading]=useState(false)
+    const navigate=useNavigate()
+    const [email,setEmail]=useState()
+    const [pass,setPass]=useState()
+    const handleForm=(e)=>{
+        e.preventDefault()
+        setLoading(true)
+        let data={
+             email:email,
+             password:pass,
+        }
+        apiServices.login(data).then(
+            (x)=>{
+                // setTimeout(
+                //     ()=>{
+                //         setLoading(false)
+                //     },1500
+                // )
+                if(x.data.success){
+                    // console.log(x)
+                    toast.success(x.data.msg)
+                    sessionStorage.setItem("token",x.data.token)
+                    setTimeout(
+                        ()=>{
+                        navigate("/admin")
+                        },2000
+                    )
+                }
+                else{
+                    toast.error(x.data.msg)
+                }
+            }
+        ).catch(
+            (error)=>{
+                setTimeout(
+                    ()=>{
+                        setLoading(false)
+                    },1500
+                )
+                console.log(error)
+                toast.error("Something went wrong!! try again later")
+            }
+        )
+    }
+    const changeEmail=(e)=>{
+        console.log(e.target.value)
+        setEmail(e.target.value)
+    }
+    const cssobj={
+        position:"absolute",
+        top:"20%",
+        left:"45%",
+    }
+  return(
+    <>
+    <div className="container">
+    <ClipLoader loading={loading} cssOverride={cssobj}/>
+            <div className="row my-5">
+                <div className="col-md-12">
+                    <h1 className="mt-5"> Admin Login</h1>
+                    <form onSubmit={handleForm}>
+                      <label >E-mail</label>
+                      <input className="form-control" value={email} onChange={changeEmail}/>
+                      <label >Password</label>
+                      <input className="form-control" value={pass} onChange={
+                                                        (e) => { setPass(e.target.value) }
+                                                    }/>
+                      <br/>
+                      
+                      <div className="row">
+                        <div className="col-md-12">
+                         <button type="submit" className="btn btn-primary">Submit</button>
+                        </div>
+                      </div>
+                      
+                    </form>
+                </div>
             </div>
-          </div>
-        </div> 
-
-<div className="col-md-12 m-5"></div>
-
-
-
-        
-      </>
-    )
+        </div>
+        <ToastContainer/>
+    </>
+  )
 }

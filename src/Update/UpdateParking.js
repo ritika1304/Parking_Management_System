@@ -5,7 +5,7 @@ import * as qs from "qs";
 import {toast} from "react-toastify"
 import apiServices from "../General/apiServices";
 
-export default function AddParking(){
+export default function UpdateParking(){
     const [name, setName] = useState('');
     const [city, setCity] = useState('');
     const [longitude, setLogitude] = useState('');
@@ -27,10 +27,9 @@ export default function AddParking(){
             address:address,
             password:password,
             email:email,
-            
+
         }
-    
-  
+
   apiServices.AddParking(data).then(
     (x)=>{
         console.log(x)
@@ -50,8 +49,7 @@ export default function AddParking(){
         toast.error("Something went wrong!! try again later")
     }
 )
-
-}   
+    }
     return(
         <>
         <div className="container">
@@ -115,4 +113,4 @@ export default function AddParking(){
         </div>
         </>
     )
-    }  
+}
