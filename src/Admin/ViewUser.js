@@ -1,23 +1,22 @@
-export default function viewUser(){
-    const Manage=[
-        {
-            user_name:"car ",
-            email:" 12.30",
-            address:"1200",
-           
-        },
-        {
-            user_name:"car ",
-            email:" 12.30",
-            address:"1200",
-        },
-        {
-            user_name:"car ",
-            email:" 12.30",
-            address:"1200",
-        },
-     
-    ]
+import { useEffect,useState } from "react";
+import apiServices from "../General/apiServices";
+export default function ViewUser(){
+    const[myData4,setMyData4] = useState()
+    useEffect(
+        ()=>{
+            let data = {}
+            apiServices.ViewUser(data).then(
+                (response) =>{
+
+                    console.log('response is:', response.data.data)
+                    setMyData4(response.data.data)
+                }
+            ).catch(
+                (error)=>{
+                    console.log('error is ',error)
+                }
+            )
+        },[])
     return(
         <>
         
@@ -28,31 +27,33 @@ export default function viewUser(){
             <thead>
                  <tr>
                     <th>Sr.No</th>
-                    <th>user_Details</th>
-                    <th>time</th>
-                    <th>cost</th>
-                    <th>update_Status</th>
+                    <th>name</th>
+                    <th>email</th>
+                    <th>password</th>
+                    <th>contact</th>
+                    <th>address</th>
                      
                 </tr>
                 </thead>
            
-            {Manage.map((el,index)=>(
+            {myData4?.map((el,index)=>(
                 <tr key={index}>
                     <td>{index+1}</td>
-                    <td>{el.user_Details}</td>
-                    <td>{el.time}</td>
-                    <td>{el.cost}</td>
-                    <td>{el.update_Status}</td>
+                    <td>{el?.name}</td>
+                    <td>{el?.email}</td>
+                    <td>{el?.password}</td>
+                    <td>{el?.contact}</td>
+                    <td>{el?.address}</td>
                     
                     
                 </tr>
             ))}
          </table>
-         <div className="row">
+         {/* <div className="row">
             <div className="col-md-12">
                  <button type="save" className="btn btn-primary">Save</button>
             </div>
-        </div>
+        </div> */}
           
           </div>
         </>

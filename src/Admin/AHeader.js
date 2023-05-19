@@ -65,7 +65,7 @@ export default function AHeader() {
                                             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <Link to="addSlots">
                                                     <a className="dropdown-item" href="addSlots.js">Add Slots</a></Link>
-                                                <Link to="ViewSlots">
+                                                <Link to="/viewSlot">
                                                     <a className="dropdown-item" href="manage.js">View Slots</a></Link>
                                             </div>
                                         </div>
@@ -76,10 +76,23 @@ export default function AHeader() {
                                                 User
                                             </button>
                                             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <Link to="addSlots">
-                                                    <a className="dropdown-item" href="addSlots.js">Add User</a></Link>
-                                                <Link to="ViewSlots">
-                                                    <a className="dropdown-item" href="manage.js">View User</a></Link>
+                                            <Link to="/register">
+                                                    <a className="dropdown-item" href=" ">Add User</a></Link>
+                                                <Link to="viewUser">
+                                                    <a className="dropdown-item" href=" ">View User</a></Link>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li className="nav-item">
+                                        <div className="dropdown">
+                                            <button className="btn text-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Booking
+                                            </button>
+                                            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <Link to="/bookBooking">
+                                                    <a className="dropdown-item" href=" ">Add Booking</a></Link>
+                                                <Link to="viewBooking">
+                                                    <a className="dropdown-item" href=" ">View Booking</a></Link>
                                             </div>
                                         </div>
                                     </li>

@@ -10,7 +10,7 @@ export default function BookBooking() {
   const [total_cost, setTotal_cost] = useState('');
 
   const handleSubmit = (e) => {
-   // e.preventDefault();
+    e.preventDefault();
 
     let data = {
       price: price,
@@ -19,23 +19,23 @@ export default function BookBooking() {
       total_cost: total_cost
     };
 
-    // apiServices
-    //   .BookBooking(data)
-    //   .then((response) => {
-    //     if (response.data.success) {
-    //       toast.success(response.data.message);
-    //       setPrice('');
-    //       setDate('');
-    //       setTime('');
-    //       setTotal_cost('');
-    //     } else {
-    //       toast.error(response.data.message);
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     toast.error('Something went wrong');
-    //   });
+    apiServices
+      .BookBooking(data)
+      .then((response) => {
+        if (response.data.success) {
+          toast.success(response.data.message);
+          setPrice('');
+          setDate('');
+          setTime('');
+          setTotal_cost('');
+        } else {
+          toast.error(response.data.message);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error('Something went wrong');
+      });
   };
 
   return (

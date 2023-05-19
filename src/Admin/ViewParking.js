@@ -1,41 +1,23 @@
-//import { Link } from "react-router-dom"
+import { useEffect,useState } from "react";
+import apiServices from "../General/apiServices";
 export default function ViewParking(){
-    const ViewParking=[
-        {
-            name:'Ritika',
-            city:'jalandhar',
-            longitude:'',
-            latitude:'',
-            phone:'6280338944',
-            parking_owner:'Ritika',
-            address:'Surya Enclave',
-            password:1234,
-            email:'ritikay0413@gmail.com',
-        },
-        {
-            name:'Ritika',
-            city:'jalandhar',
-            longitude:'',
-            latitude:'',
-            phone:'6280338944',
-            parking_owner:'Ritika',
-            address:'Surya Enclave',
-            password:1234,
-            email:'ritikay0413@gmail.com',
-        },
-        {
-            name:'Ritika',
-            city:'jalandhar',
-            longitude:'',
-            latitude:'',
-            phone:'6280338944',
-            parking_owner:'Ritika',
-            address:'Surya Enclave',
-            password:1234,
-            email:'ritikay0413@gmail.com',
-        },
-     
-    ]
+    const[myData2,setMyData2]=useState()
+    useEffect(
+        ()=>{
+            let data = {}
+            apiServices.ViewParking(data).then(
+                (response) =>{
+
+                    console.log('response is:', response.data.data)
+                    setMyData2(response.data.data)
+                }
+            ).catch(
+                (error)=>{
+                    console.log('error is ',error)
+                }
+            )
+            
+        },[])
     return(
         <>
         
@@ -60,18 +42,18 @@ export default function ViewParking(){
                 </tr>
                 </thead>
            
-            {ViewParking.map((el,index)=>(
+            {myData2?.map((el,index)=>(
                 <tr key={index}>
                     <td>{index+1}</td>
-                    <td>{el.name}</td>
-                    <td>{el.city}</td>
-                    <td>{el.longitude}</td>
-                    <td>{el.latitude}</td>
-                    <td>{el.phone}</td>
-                    <td>{el.parking_owner}</td>
-                    <td>{el.address}</td>
-                    <td>{el.password}</td>
-                    <td>{el.email}</td>
+                    <td>{el?.name}</td>
+                    <td>{el?.city}</td>
+                    <td>{el?.longitude}</td>
+                    <td>{el?.latitude}</td>
+                    <td>{el?.phone}</td>
+                    <td>{el?.parking_owner}</td>
+                    <td>{el?.address}</td>
+                    <td>{el?.password}</td>
+                    <td>{el?.email}</td>
                     
                     
                 </tr>
@@ -79,11 +61,11 @@ export default function ViewParking(){
          </table>
          <br/>
          
-         <div className="row">
+         {/* <div className="row">
             <div className="col-md-12">
                  <button type="save" className="btn btn-primary">Save</button>
             </div>
-        </div>
+        </div> */}
         
           
         </div>

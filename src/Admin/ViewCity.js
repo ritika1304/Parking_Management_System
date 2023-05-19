@@ -1,25 +1,28 @@
-export default function viewCity(){
-    const Manage=[
-        {
-            city_name: 'Jalandhar',
-            Image:'img'
-           
-        },
-        {
-            city_name: 'Hoshiarpur',
-            Image:'img'
-        },
-        {
-            city_name: 'pathankot',
-            Image:'img'
-        },
-     
-    ]
+import { useEffect,useState } from "react";
+import apiServices from "../General/apiServices";
+
+export default function ViewCity(){
+    const[myData3,setMyData3] = useState()
+    useEffect(
+        ()=>{
+            let data = {}
+            apiServices.viewCity(data).then(
+                (response) =>{
+
+                    console.log('response is:', response.data.data)
+                    setMyData3(response.data.data)
+                }
+            ).catch(
+                (error)=>{
+                    console.log('error is ',error)
+                }
+            )
+        },[])
     return(
         <>
         
             <div className="container table-responsive">
-            <h1>view City</h1>
+            <h1>View City</h1>
             <table className="table table-bordered table-hover table-striped">
                
             <thead>
@@ -27,16 +30,19 @@ export default function viewCity(){
                     <th>Sr.No</th>
                     <th>city_name</th>
                     <th>Image</th>
+                    <th>Action</th>
+
                     
                      
                 </tr>
                 </thead>
            
-            {Manage.map((el,index)=>(
+            {myData3?.map((el,index)=>(
                 <tr key={index}>
                     <td>{index+1}</td>
-                    <td>{el.city_name}</td>
-                    <td>{el.Image}</td>
+                    <td>{el?.city_name}</td>
+                    <td>{el?.Image}</td>
+                    <td><Link to ={"viewCity/"+`${el?._id}`}><button className='btn btn-sucess'>Edit</button></Link></td>
                     
                 </tr>
             ))}

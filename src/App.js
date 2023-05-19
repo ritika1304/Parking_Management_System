@@ -22,6 +22,7 @@ import BookBooking from "./User/bookBooking";
 import UpdateCity from "./Update/UpdateCity";
 import UpdateParking from "./Update/UpdateParking";
 import UpdateSlots from "./Update/UpdateSlots";
+import UpdateBooking from "./Update/UpdateBooking";
 
 function App(){
   return (
@@ -51,6 +52,7 @@ function App(){
         <Route path="updateCity" element={<UpdateCity/>}/>
         <Route path="addSlots" element={<AddSlots/>}/>
         <Route path="updateSlots" element={<UpdateSlots/>}/>
+        <Route path="updateBooking" element={<UpdateBooking/>}/>
         
         <Route path="viewBooking" element={<ViewBookings/>}/>
         <Route path="viewUser" element={<ViewUser/>}/>

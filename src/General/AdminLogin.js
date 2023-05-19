@@ -72,9 +72,14 @@ export default function Login() {
                       <label >E-mail</label>
                       <input className="form-control" value={email} onChange={changeEmail}/>
                       <label >Password</label>
-                      <input className="form-control" value={pass} onChange={
-                                                        (e) => { setPass(e.target.value) }
-                                                    }/>
+                      <input
+                              type="password"
+                              id="form3Example1n"
+                              className="form-control form-control-lg"
+                              value={pass}
+                              onChange={(e) => {
+                                setPass(e.target.value);
+                              }}/>
                       <br/>
                       
                       <div className="row">

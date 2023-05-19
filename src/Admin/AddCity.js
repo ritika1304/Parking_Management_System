@@ -1,7 +1,10 @@
 import axios from "axios";
 import { Link,useNavigate } from "react-router-dom"
+import { ToastContainer, toast } from "react-toastify"
+
 import { useState } from "react";
-import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import apiServices from "../General/apiServices";
 export default function AddCity(){
   
@@ -36,7 +39,9 @@ export default function AddCity(){
 }
     return(
         <>
+        
         <div className="container">
+            
             <div className="row">
                 <div className="col-md-12">
                 <h1>Add City</h1>
@@ -55,6 +60,8 @@ export default function AddCity(){
                 </div>
             </div>
         </div>
+        <ToastContainer/>
         </>
+        
     )
 }

@@ -1,12 +1,15 @@
-import  {useEffect, useState} from "react";
+import  { useEffect, useState} from 'react';
 import apiServices from "../General/apiServices";
-export default function viewBooking(){
-    const [myData,setMyData]= useState()
+import { Link } from 'react-router-dom';
+export default function ViewBooking(){
+    
+    const [myData,setMyData] = useState()
     useEffect(
         ()=>{
             let data = {}
-            apiServices.viewBooking(data).then(
+            apiServices.viewbooking(data).then(
                 (response) =>{
+
                     console.log('response is:', response.data.data)
                     setMyData(response.data.data)
                 }
@@ -15,8 +18,7 @@ export default function viewBooking(){
                     console.log('error is ',error)
                 }
             )
-        },[]
-    )
+        },[])
 
 
     return(
@@ -37,6 +39,7 @@ export default function viewBooking(){
                     <th>payment_way</th>
                     <th>CVV</th>
                     <th>card_no</th>
+                    <th>Action</th>
                      
                 </tr>
                 </thead>
@@ -44,14 +47,15 @@ export default function viewBooking(){
             {myData?.map((el,index)=>(
                 <tr key={index}>
                     <td>{index+1}</td>
-                    {/* <td>{el.price}</td>
-                    <td>{el.date}</td>
-                    <td>{el.time}</td>
-                    <td>{el.total_cost}</td>
-                    <td>{el.payment_way}</td>
-                    <td>{el.CVV}</td>
-                    <td>{el.card_no}</td>
-                     */}
+                    <td>{el?.price}</td>
+                    <td>{el?.date}</td>
+                    <td>{el?.time}</td>
+                    <td>{el?.total_cost}</td>
+                    <td>{el?.payment_way}</td>
+                    <td>{el?.CVV}</td>
+                    <td>{el?.card_no}</td>
+                    <td><Link to ={"viewBooking/"+`${el?._id}`}><button className='btn btn-sucess'>Edit</button></Link></td>
+                    
                     
                 </tr>
             ))}

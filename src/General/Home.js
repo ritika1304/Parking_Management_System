@@ -688,15 +688,15 @@ export default function Home(){
           <div className="info_link-box">
             <a href="">
               <img src="images/location.png" alt=""/>
-              <span> Location</span>
+              <span>Surya Enclave ,Jalandhar City</span>
             </a>
             <a href="">
               <img src="images/call.png" alt=""/>
-              <span>+01 12345678901</span>
+              <span>+91 6280338944</span>
             </a>
             <a href="">
               <img src="images/envelope.png" alt=""/>
-              <span> demo123@gmail.com</span>
+              <span>ritikay0413@gmail.com</span>
             </a>
           </div>
           <div className="info_social">

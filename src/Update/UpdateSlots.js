@@ -1,44 +1,6 @@
-import axios from "axios";
-import { Link,useNavigate } from "react-router-dom"
-import { useState } from "react";
-import * as qs from "qs";
-import { toast } from "react-toastify";
-import apiServices from "../General/apiServices";
 
 export default function UpdateSlots(){
-    const [slots, setSlots] = useState('');
-    const [pricePerDay, setPricePerDay] = useState('');
-    const [vehicleType, setVehicleType] = useState('');
-    const [pricePerHour, setPricePerHour] = useState('');
-    const navigate=useNavigate()
-  const handleForm = (e) => {
-    let data={
-        slots:slots,
-        pricePerDay:pricePerDay,
-        vehicleType:vehicleType,
-        pricePerHour:pricePerHour,
-    }
-  apiServices.AddSlots(data).then(
-    (x)=>{
-        console.log(x)
-        if(x.data.success){
-        toast.success(x.data.msg)
-        sessionStorage.setItem("token",x.data.token )
-        sessionStorage.setItem("authorize",true)
-        console.log(x)
-        navigate("/admin")
-    }
-    else{
-        toast.error(x.data.msg)
-    }
-        
-    }
-  ).catch(
-    ()=>{
-        toast.error("Something went wrong!! try again later")
-    }
-)
-  }
+    
     return(
         <>
         <div className="container">
